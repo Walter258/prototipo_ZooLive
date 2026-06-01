@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZooLive — Huellitas Solidarias</title>
+
+  <!-- Iconos Tabler -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="styles.css"/>
+
+  <!-- Librería QR Code -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     la parte superior: barra de navegación
+     ══════════════════════════════════════ -->
+<nav class="navbar">
+  
+  <div class="nav-logo" onclick="showPage('inicio')">
+    <i class="ti ti-paw"></i> ZooLive
+  </div>
+
+  <div class="nav-links">
+    <a href="#" onclick="showPage('inicio'); return false;" class="active" id="tab-inicio">Inicio</a>
+    <a href="#" onclick="showPage('huellitas'); return false;" id="tab-huellitas">Huellitas</a>
+    <a href="#" onclick="showPage('donaciones'); return false;" id="tab-donaciones">Donaciones</a>
+    <a href="#" onclick="showPage('adopcion'); return false;" id="tab-adopcion">Adopción</a>
+    <a href="#" onclick="showPage('perfil'); return false;" id="tab-perfil">Mi perfil</a>
+    <a href="#" onclick="showPage('triaje'); return false;" id="tab-triaje">Triaje</a>
+  </div>
+
+  <button class="nav-btn" onclick="showPage('perfil')">Iniciar sesión</button>
+
+</nav>
+
+
+<!-- ══════════════════════════════════════
+     PÁGINA: INICIO
+     ══════════════════════════════════════ -->
+<div id="page-inicio" class="page active">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-badge">
+      <i class="ti ti-map-pin"></i> Jr. 2 de mayo N° 788, Concepción
+    </div>
+    <h1>Cuidamos su vida, como si fuera parte de la nuestra 🐾</h1>
+    <p>La única veterinaria en Concepción donde tu visita también salva a un animal de la calle.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="showPage('huellitas')">
+        <i class="ti ti-credit-card"></i> Ver tarjeta Huellitas
+      </button>
+      <button class="btn-outline" onclick="showPage('triaje')">
+        <i class="ti ti-message"></i> Triaje express
+      </button>
+    </div>
+  </div>
+
+  <!-- Estadísticas -->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num">47</div>
+      <div class="stat-lbl">animales ayudados este mes</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">S/ 284</div>
+      <div class="stat-lbl">recaudados en donaciones</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">132</div>
+      <div class="stat-lbl">miembros activos</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4.9 ⭐</div>
+      <div class="stat-lbl">calificación promedio</div>
+    </div>
+  </div>
+
+  <!-- Cómo funciona -->
+  <div class="section">
+    <p class="section-title">¿Cómo funciona?</p>
+    <p class="section-sub">Tres pasos para ser parte de la comunidad ZooLive</p>
+    <div class="grid3">
+      <div class="card card-step card-step--green">
+        <div class="step-num step-num--green">1</div>
+        <p class="step-title">Regístrate</p>
+        <p class="step-desc">Crea tu cuenta y recibe tu tarjeta Huellitas Solidarias en tu próxima visita.</p>
+      </div>
+      <div class="card card-step card-step--coral">
+        <div class="step-num step-num--coral">2</div>
+        <p class="step-title">Dona y acumula</p>
+        <p class="step-desc">Al pagar tu consulta, aporta desde S/1. Cada visita suma un sello huellita.</p>
+      </div>
+      <div class="card card-step card-step--amber">
+        <div class="step-num step-num--amber">3</div>
+        <p class="step-title">Canjea beneficios</p>
+        <p class="step-desc">Con 6 sellos: baño gratis, snacks o corte de uñas para tu mascota.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Servicios -->
+  <!--<div class="section section-alt">
+    <p class="section-title">Nuestros servicios</p>
+    <p class="section-sub">Atención ética y cercana para tu mascota</p>
+    <div class="grid4">
+      <div class="card service-card">
+        <i class="ti ti-stethoscope service-icon service-icon--green"></i>
+        <p class="service-name">Consulta general</p>
+        <p class="service-price">Desde S/ 25</p>
+      </div>
+      <div class="card service-card">
+        <i class="ti ti-droplet service-icon service-icon--green"></i>
+        <p class="service-name">Vacunación</p>
+        <p class="service-price">Desde S/ 15</p>
+      </div>
+      <div class="card service-card">
+        <i class="ti ti-scissors service-icon service-icon--green"></i>
+        <p class="service-name">Baño y corte</p>
+        <p class="service-price">Desde S/ 20</p>
+      </div>
+      <div class="card service-card">
+        <i class="ti ti-urgent service-icon service-icon--coral"></i>
+        <p class="service-name">Emergencias</p>
+        <p class="service-price">Triaje express 24h</p>
+      </div>
+    </div>
+  </div> -->
+
+</div><!-- /page-inicio -->
+
+
+<!-- ══════════════════════════════════════
+     PÁGINA: HUELLITAS SOLIDARIAS
+     ══════════════════════════════════════ -->
+<div id="page-huellitas" class="page">
+  <div class="section">
+    <p class="section-title">Tarjeta Huellitas Solidarias</p>
+    <p class="section-sub">Tu tarjeta física y digital — tamaño DNI, tecnología QR</p>
+
+    <div class="grid2">
+
+      <!-- Columna izquierda: tarjeta + sellos + QR grande -->
+      <div>
+
+        <!-- Tarjeta física (frente) -->
+        <div class="tarjeta-front">
+          <div class="tarjeta-header">
+            <div>
+              <p class="tarjeta-label">HUELLITAS SOLIDARIAS</p>
+              <p class="tarjeta-logo">🐾 ZooLive</p>
+              <p class="tarjeta-sub">Veterinaria · Concepción</p>
+            </div>
+            <!-- QR pequeño generado por JS -->
+            <div id="qr-tarjeta" class="qr-small-wrap"></div>
+          </div>
+          <p class="tarjeta-member-label">MIEMBRO</p>
+          <p class="tarjeta-member-name">Gabriela Vilca H.</p>
+          <div class="tarjeta-badges">
+            <span class="badge badge-dark">🐾 4 huellitas</span>
+            <span class="badge badge-dark">Vigente 2026</span>
+          </div>
+          <p class="tarjeta-scan-hint">Escanéame</p>
+        </div>
+
+        <!-- Reverso: sellos -->
+        <div class="card mt-12">
+          <p class="card-label">Mis sellos acumulados (4/6)</p>
+          <div class="stamps-grid">
+            <div class="stamp filled">🐾</div>
+            <div class="stamp filled">🐾</div>
+            <div class="stamp filled">🐾</div>
+            <div class="stamp filled">🐾</div>
+            <div class="stamp">🐾</div>
+            <div class="stamp">🐾</div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 66%"></div>
+          </div>
+          <p class="hint-text mt-8">2 sellos más para tu recompensa</p>
+        </div>
+
+        <!-- QR grande -->
+        <div class="card mt-12 text-center">
+          <p class="card-label mb-12">Código QR de la tarjeta</p>
+          <div id="qr-grande" class="qr-large-wrap"></div>
+          <p class="hint-text mb-10">Escanea este QR para acceder al perfil digital y al triaje express.</p>
+          <button class="btn-primary" onclick="descargarQR()">
+            <i class="ti ti-download"></i> Descargar QR
+          </button>
+        </div>
+
+      </div><!-- /col izquierda -->
+
+      <!-- Columna derecha: donación + beneficios -->
+      <div>
+        <p class="card-label mb-12">Aporta al momento de pagar</p>
+        <div class="don-row">
+          <button class="don-btn active" onclick="selDon(this)">S/ 1</button>
+          <button class="don-btn"        onclick="selDon(this)">S/ 3</button>
+          <button class="don-btn"        onclick="selDon(this)">S/ 5</button>
+          <button class="don-btn"        onclick="selDon(this)">S/ 10</button>
+        </div>
+        <p class="hint-text mb-20">
+          Tu aporte va directamente a vacunar y esterilizar animales de la calle en Concepción,
+          junto a la ONG Las Garras Salvajes.
+        </p>
+
+        <hr>
+
+        <p class="card-label mb-12">Beneficios al completar 6 sellos</p>
+
+        <div class="impact-row">
+          <div class="impact-icon">
+            <i class="ti ti-bowl" style="color: var(--green-main); font-size: 18px;"></i>
+          </div>
+          <div>
+            <p class="benefit-title">Snack húmedo gratis</p>
+            <p class="hint-text">Para tu mascota en la siguiente visita</p>
+          </div>
+        </div>
+
+        <div class="impact-row">
+          <div class="impact-icon">
+            <i class="ti ti-scissors" style="color: var(--green-main); font-size: 18px;"></i>
+          </div>
+          <div>
+            <p class="benefit-title">Baño o corte de uñas gratuito</p>
+            <p class="hint-text">Servicio valorado en S/ 20</p>
+          </div>
+        </div>
+
+        <div class="impact-row">
+          <div class="impact-icon">
+            <i class="ti ti-discount" style="color: var(--green-main); font-size: 18px;"></i>
+          </div>
+          <div>
+            <p class="benefit-title">10% de descuento</p>
+            <p class="hint-text">En tu próxima consulta general</p>
+          </div>
+        </div>
+
+        <button class="btn-primary full-width mt-18" onclick="showPage('perfil')">
+          <i class="ti ti-user-plus"></i> Registrarme y obtener mi tarjeta
+        </button>
+      </div><!-- /col derecha -->
+
+    </div>
+  </div>
+</div><!-- /page-huellitas -->
+
+
+<!-- ══════════════════════════════════════
+     PÁGINA: DONACIONES / PIZARRA
+     ══════════════════════════════════════ -->
+<div id="page-donaciones" class="page">
+  <div class="section">
+    <p class="section-title">Pizarra de impacto</p>
+    <p class="section-sub">Así se están usando tus aportes este mes — mayo 2026</p>
+
+    <!-- Contadores -->
+    <div class="grid4 mb-24">
+      <div class="card text-center stat-card stat-card--green">
+        <p class="big-num green">S/ 284</p>
+        <p class="hint-text mt-4">recaudado este mes</p>
+      </div>
+      <div class="card text-center stat-card stat-card--mid">
+        <p class="big-num mid">23</p>
+        <p class="hint-text mt-4">vacunas aplicadas</p>
+      </div>
+      <div class="card text-center stat-card stat-card--coral">
+        <p class="big-num coral">8</p>
+        <p class="hint-text mt-4">esterilizaciones</p>
+      </div>
+      <div class="card text-center stat-card stat-card--amber">
+        <p class="big-num amber">16</p>
+        <p class="hint-text mt-4">animales desparasitados</p>
+      </div>
+    </div>
+
+    <!-- Registro de acciones -->
+    <div class="card">
+      <p class="card-title mb-14">Registro de acciones</p>
+
+      <div class="impact-row">
+        <div class="timeline-dot"></div>
+        <div class="impact-content">
+          <div>
+            <p class="impact-title">Campaña de vacunación</p>
+            <p class="hint-text">8 perros callejeros del parque Grau recibieron antirrábica.</p>
+          </div>
+          <span class="badge badge-teal">24 may 2026</span>
+        </div>
+      </div>
+
+      <div class="impact-row">
+        <div class="timeline-dot"></div>
+        <div class="impact-content">
+          <div>
+            <p class="impact-title">Esterilización de gatas rescatadas</p>
+            <p class="hint-text">4 gatas del sector Manzanares fueron esterilizadas.</p>
+          </div>
+          <span class="badge badge-teal">18 may 2026</span>
+        </div>
+      </div>
+
+      <div class="impact-row">
+        <div class="timeline-dot"></div>
+        <div class="impact-content">
+          <div>
+            <p class="impact-title">Desparasitación masiva</p>
+            <p class="hint-text">16 animales atendidos en feria comunitaria.</p>
+          </div>
+          <span class="badge badge-teal">10 may 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="hint-text text-center mt-12">
+      Cada acción se registra con respaldo fotográfico por el equipo ZooLive.
+    </p>
+  </div>
+</div><!-- /page-donaciones -->
+
+
+<!-- ══════════════════════════════════════
+     PÁGINA: ADOPCIÓN
+     ══════════════════════════════════════ -->
+<div id="page-adopcion" class="page">
+  <div class="section">
+    <p class="section-title">Animales en adopción</p>
+    <p class="section-sub">Rescatados que esperan un hogar en Concepción</p>
+
+    <div class="grid3">
+
+      <div class="animal-card">
+        <div class="animal-img">🐕</div>
+        <div class="animal-body">
+          <div class="animal-header">
+            <p class="animal-name">Bruno</p>
+            <span class="badge badge-teal">Disponible</span>
+          </div>
+          <p class="animal-meta">Perro mestizo · 2 años · vacunado</p>
+          <p class="animal-desc">Rescatado del sector Manzanares. Tranquilo y cariñoso.</p>
+          <button class="btn-primary full-width btn-sm">Me interesa adoptarlo</button>
+        </div>
+      </div>
+
+      <div class="animal-card">
+        <div class="animal-img animal-img--coral">🐈</div>
+        <div class="animal-body">
+          <div class="animal-header">
+            <p class="animal-name">Luna</p>
+            <span class="badge badge-coral">En proceso</span>
+          </div>
+          <p class="animal-meta">Gata · 1 año · esterilizada</p>
+          <p class="animal-desc">Encontrada en parque Grau. Sociable con niños.</p>
+          <button class="btn-outline full-width btn-sm btn-disabled">Ya tiene interesados</button>
+        </div>
+      </div>
+
+      <div class="animal-card">
+        <div class="animal-img animal-img--amber">🐩</div>
+        <div class="animal-body">
+          <div class="animal-header">
+            <p class="animal-name">Canela</p>
+            <span class="badge badge-amber">Recuperando</span>
+          </div>
+          <p class="animal-meta">Perra · 3 años · en tratamiento</p>
+          <p class="animal-desc">Rescatada con lesiones. Lista para adopción en 3 semanas.</p>
+          <button class="btn-outline full-width btn-sm">Seguir su historia</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card mt-18 card-green-pale">
+      <p class="card-title green-dark mb-6">¿Rescataste un animal y necesitas apoyo veterinario?</p>
+      <p class="hint-text green-mid mb-14">
+        Trabajamos con la ONG Las Garras Salvajes para brindar atención a animales en situación de calle.
+      </p>
+      <button class="btn-primary">Contactar a ZooLive</button>
+    </div>
+  </div>
+</div><!-- /page-adopcion -->
+
+
+<!-- ══════════════════════════════════════
+     PÁGINA: MI PERFIL
+     ══════════════════════════════════════ -->
+<div id="page-perfil" class="page">
+  <div class="section">
+    <p class="section-title">Mi perfil</p>
+    <p class="section-sub">Gestiona tu mascota y tus puntos desde aquí</p>
+
+    <div class="grid2">
+
+      <!-- Usuario -->
+      <div class="card">
+        <div class="profile-header mb-16">
+          <div class="avatar">GV</div>
+          <div>
+            <p class="profile-name">Gabriela Vilca H.</p>
+            <p class="hint-text">Miembro desde enero 2026</p>
+          </div>
+        </div>
+        <hr>
+        <div class="profile-stats">
+          <div class="profile-row">
+            <span class="hint-text">Sellos acumulados</span>
+            <span class="profile-value green">4 / 6</span>
+          </div>
+          <div class="profile-row">
+            <span class="hint-text">Total donado</span>
+            <span class="profile-value">S/ 18</span>
+          </div>
+          <div class="profile-row">
+            <span class="hint-text">Visitas registradas</span>
+            <span class="profile-value">4</span>
+          </div>
+          <div class="profile-row">
+            <span class="hint-text">Próxima cita</span>
+            <span class="profile-value green">2 jun 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mascota -->
+      <div class="card">
+        <div class="pet-header mb-14">
+          <div class="pet-avatar">🐕</div>
+          <div>
+            <p class="profile-name">Rocky</p>
+            <p class="hint-text">Golden Retriever · 4 años</p>
+          </div>
+        </div>
+        <hr>
+        <div class="profile-stats">
+          <div class="profile-row">
+            <span class="hint-text">Última vacuna</span>
+            <span>Antirrábica — mar 2026</span>
+          </div>
+          <div class="profile-row">
+            <span class="hint-text">Próxima vacuna</span>
+            <span class="amber">Parvovirus — jun 2026</span>
+          </div>
+          <div class="profile-row">
+            <span class="hint-text">Desparasitación</span>
+            <span class="green">Al día ✓</span>
+          </div>
+          <div class="profile-row">
+            <span class="hint-text">Historial clínico</span>
+            <span class="green link">Ver 3 visitas →</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Historial de donaciones -->
+    <div class="card mt-16">
+      <p class="card-title mb-12">Historial de donaciones</p>
+      <div class="impact-row">
+        <div class="timeline-dot"></div>
+        <div class="donation-row-content">
+          <span>Visita consulta general</span>
+          <span class="donation-amount">+ S/ 5</span>
+        </div>
+      </div>
+      <div class="impact-row">
+        <div class="timeline-dot"></div>
+        <div class="donation-row-content">
+          <span>Vacunación Rocky</span>
+          <span class="donation-amount">+ S/ 3</span>
+        </div>
+      </div>
+      <div class="impact-row">
+        <div class="timeline-dot"></div>
+        <div class="donation-row-content">
+          <span>Primera visita</span>
+          <span class="donation-amount">+ S/ 1</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /page-perfil -->
+
+
+<!-- ══════════════════════════════════════
+     PÁGINA: TRIAJE EXPRESS
+     ══════════════════════════════════════ -->
+<div id="page-triaje" class="page">
+  <div class="section">
+    <p class="section-title">Triaje express</p>
+    <p class="section-sub">Chatbot por WhatsApp — orientación inmediata para tu mascota</p>
+
+    <div class="grid2">
+
+      <!-- Opciones -->
+      <div>
+        <p class="hint-text mb-16">
+          Escanea el QR de tu tarjeta Huellitas o presiona el botón para abrir el chat en WhatsApp.
+        </p>
+
+        <div class="triaje-option">
+          <div class="triaje-icon triaje-icon--red">🚨</div>
+          <div>
+            <p class="triaje-title">1. Triaje de emergencia</p>
+            <p class="hint-text">Describe los síntomas y recibe orientación inmediata</p>
+          </div>
+        </div>
+
+        <div class="triaje-option">
+          <div class="triaje-icon triaje-icon--green">⭐</div>
+          <div>
+            <p class="triaje-title">2. Mis puntos por snacks</p>
+            <p class="hint-text">Consulta tus sellos y beneficios disponibles</p>
+          </div>
+        </div>
+
+        <div class="triaje-option">
+          <div class="triaje-icon triaje-icon--amber">❤️</div>
+          <div>
+            <p class="triaje-title">3. Hacer una donación</p>
+            <p class="hint-text">Aporta via Yape o en caja en tu próxima visita</p>
+          </div>
+        </div>
+
+        <button class="wa-float-btn mt-10"
+          onclick="window.open('https://wa.me/51999999999?text=Hola+ZooLive', '_blank')">
+          <i class="ti ti-brand-whatsapp" style="font-size: 20px;"></i>
+          Abrir triaje en WhatsApp
+        </button>
+
+        <p class="hint-text text-center mt-8">
+          ⚠️ Este triaje es orientativo y NO reemplaza una consulta médica presencial.
+        </p>
+      </div>
+
+      <!-- Vista previa del chat -->
+      <div>
+        <p class="card-title mb-10">Vista previa del chat</p>
+        <div class="chat-wrap">
+          <div class="wa-bubble">
+            🐾 <strong>ZooLive</strong><br><br>
+            Hola, soy el asistente de ZooLive. ¿En qué te ayudo hoy? Elige una opción:<br><br>
+            1. 🚨 Triaje de emergencia<br>
+            2. ⭐ Mis puntos por snacks<br>
+            3. ❤️ Hacer una donación
+          </div>
+          <div class="user-bubble">1</div>
+          <div class="wa-bubble">
+            Cuéntame los síntomas de tu mascota. ¿Cuántas horas lleva así? ¿Come y bebe con normalidad?
+          </div>
+          <div class="user-bubble">Lleva 2 días sin comer y vomita</div>
+          <div class="wa-bubble">
+            Eso requiere atención pronto. Te recomiendo venir hoy. Nuestro horario es de 9am a 6pm.
+            ¿Quieres que te reserve una cita?
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div><!-- /page-triaje -->
+
+
+<!-- ══════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>🐾 ZooLive</h4>
+      <p>Veterinaria comprometida con el bienestar animal y la comunidad de Concepción.</p>
+    </div>
+    <div>
+      <h4>Páginas</h4>
+      <a onclick="showPage('inicio')">Inicio</a>
+      <a onclick="showPage('huellitas')">Huellitas Solidarias</a>
+      <a onclick="showPage('donaciones')">Pizarra de impacto</a>
+      <a onclick="showPage('adopcion')">Adopción</a>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <p>📍 Jr. 2 de mayo N° 788, Concepción</p>
+      <p>🕘 Lun – Sáb 9am – 6pm</p>
+      <a onclick="window.open('https://wa.me/51999999999', '_blank')">💬 WhatsApp triaje express</a>
+    </div>
+    <div>
+      <h4>En alianza con</h4>
+      <p>ONG Las Garras Salvajes</p>
+      <p>Universidad Continental<br>Emprende Continental</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 ZooLive Huellitas Solidarias</p>
+    <p>Concepción, Junín, Perú</p>
+  </div>
+</footer>
+
+<!-- Script propio (siempre al final del body) -->
+<script src="script.js"></script>
+
+</body>
+</html>

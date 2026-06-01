@@ -1,0 +1,532 @@
+/* ============================================================
+   ZooLive — Huellitas Solidarias
+   Archivo: styles.css
+   ============================================================ */
+
+/* ── Variables ─────────────────────────────────────────────── */
+:root {
+  --green-dark:  #085041;
+  --green-mid:   #0F6E56;
+  --green-main:  #1D9E75;
+  --green-light: #9FE1CB;
+  --green-pale:  #E1F5EE;
+  --coral:       #D85A30;
+  --coral-pale:  #FAECE7;
+  --amber:       #BA7517;
+  --amber-pale:  #FAEEDA;
+  --text-primary:   #1A1A18;
+  --text-secondary: #5F5E5A;
+  --border:   #D3D1C7;
+  --bg:       #F7F6F2;
+  --bg-card:  #FFFFFF;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+
+/* ── Reset ──────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 18px 0;
+}
+
+/* ── Navegación ─────────────────────────────────────────────── */
+nav {
+  background: var(--green-dark);
+  padding: 12px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #fff;
+}
+
+.nav-btn {
+  background: var(--green-light);
+  color: var(--green-dark);
+  border: none;
+  padding: 7px 18px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ── Páginas ────────────────────────────────────────────────── */
+.page        { display: none; }
+.page.active { display: block; }
+
+/* ── Hero ───────────────────────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, var(--green-pale) 0%, #C8F0E4 100%);
+  padding: 60px 40px;
+  text-align: center;
+  border-bottom: 1px solid var(--green-light);
+}
+
+.hero-badge {
+  display: inline-block;
+  background: var(--green-main);
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 16px;
+  color: var(--green-mid);
+  max-width: 500px;
+  margin: 0 auto 28px;
+  line-height: 1.6;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Botones ────────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--green-main);
+  color: #fff;
+  border: none;
+  padding: 11px 24px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover { background: var(--green-mid); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--green-dark);
+  border: 2px solid var(--green-main);
+  padding: 11px 24px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-outline:hover { background: var(--green-pale); }
+
+/* ── Barra de estadísticas ──────────────────────────────────── */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--green-dark);
+  padding: 20px 40px;
+  gap: 12px;
+}
+
+.stat     { text-align: center; }
+.stat-num { font-size: 26px; font-weight: 700; color: var(--green-light); }
+.stat-lbl { font-size: 12px; color: var(--green-light); opacity: 0.75; margin-top: 2px; }
+
+/* ── Secciones ──────────────────────────────────────────────── */
+.section       { padding: 40px; }
+.section-alt   { background: #EEECEA; }
+.section-title { font-size: 22px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+.section-sub   { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; }
+
+/* ── Grillas ────────────────────────────────────────────────── */
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+.grid4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
+
+/* ── Tarjeta (card) ─────────────────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+}
+
+/* ── Badges ─────────────────────────────────────────────────── */
+.badge       { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+.badge-teal  { background: var(--green-pale); color: var(--green-dark); }
+.badge-coral { background: var(--coral-pale); color: #712B13; }
+.badge-amber { background: var(--amber-pale); color: #633806; }
+
+/* ── Sellos (stamps) ────────────────────────────────────────── */
+.stamp {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-md);
+  border: 2px dashed var(--green-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.stamp.filled {
+  background: var(--green-pale);
+  border-style: solid;
+  border-color: var(--green-main);
+}
+
+.stamps-grid {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+/* ── Barra de progreso ──────────────────────────────────────── */
+.progress-bar {
+  height: 8px;
+  background: var(--bg);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 8px;
+  border: 1px solid var(--border);
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--green-main);
+  border-radius: 4px;
+  transition: width 0.4s;
+}
+
+/* ── Botones de donación ────────────────────────────────────── */
+.don-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 14px 0; }
+
+.don-btn {
+  padding: 9px 20px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--green-light);
+  background: transparent;
+  color: var(--green-mid);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.don-btn.active,
+.don-btn:hover {
+  background: var(--green-main);
+  color: #fff;
+  border-color: var(--green-main);
+}
+
+/* ── Fila de impacto ────────────────────────────────────────── */
+.impact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.impact-row:last-child { border: none; }
+
+.impact-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--green-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.timeline-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--green-main);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+/* ── Opción de triaje ───────────────────────────────────────── */
+.triaje-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background 0.15s;
+}
+
+.triaje-option:hover { background: var(--green-pale); }
+
+/* ── Chat de WhatsApp ───────────────────────────────────────── */
+.chat-wrap {
+  background: #ECE5DD;
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  margin-top: 14px;
+}
+
+.wa-bubble {
+  background: #fff;
+  border-radius: 0 12px 12px 12px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  max-width: 85%;
+  line-height: 1.5;
+}
+
+.user-bubble {
+  background: #DCF8C6;
+  border-radius: 12px 0 12px 12px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  max-width: 85%;
+  margin-left: auto;
+}
+
+/* ── Tarjeta de animal ──────────────────────────────────────── */
+.animal-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.animal-img {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44px;
+  background: var(--green-pale);
+}
+
+/* ── Tarjeta física ─────────────────────────────────────────── */
+.tarjeta-front {
+  background: linear-gradient(135deg, var(--green-dark) 0%, #0a3d2f 100%);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  min-height: 160px;
+}
+
+.tarjeta-front::before {
+  content: '';
+  position: absolute;
+  right: -30px;
+  top: -30px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ── QR ─────────────────────────────────────────────────────── */
+#qr-container { display: flex; justify-content: center; margin: 12px 0; }
+#qr-container canvas,
+#qr-container img { border-radius: var(--radius-md); }
+
+/* ── Botón WhatsApp ─────────────────────────────────────────── */
+.wa-float-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 12px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.wa-float-btn:hover { background: #1ebe5d; }
+
+/* ── Footer ─────────────────────────────────────────────────── */
+footer {
+  background: var(--green-dark);
+  padding: 36px 40px 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 28px;
+  margin-bottom: 24px;
+}
+
+footer h4 {
+  color: var(--green-light);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+footer p,
+footer a {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  line-height: 2;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+footer a:hover { color: #fff; }
+
+.footer-bottom {
+  border-top: 1px solid #0F6E56;
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 11px;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .nav-links              { display: none; }
+  .stats-bar              { grid-template-columns: repeat(2, 1fr); }
+  .section                { padding: 24px 16px; }
+  .hero                   { padding: 36px 16px; }
+}
+
+
+
+
+/*=================================== agregado ===========================================================- */
+
+/* Contenedor principal de la barra */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Mantiene izquierda, centro y derecha en su lugar */
+  background-color: #1ba07c;      /* Verde esmeralda de la imagen */
+  padding: 12px 24px;
+  border-radius: 12px 12px 0 0;   /* Curva superior idéntica a tu diseño */
+  font-family: sans-serif;        /* Tipografía limpia */
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Estilos del Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/* Contenedor de los enlaces del centro */
+.nav-links {
+  display: flex;
+  gap: 20px;                      /* Espacio exacto entre cada palabra */
+  align-items: center;
+}
+
+/* Estilo para cada palabra/enlace */
+.nav-links a {
+  color: rgba(255, 255, 255, 0.9); /* Blanco sutil */
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+/* Enlace activo (Inicio) o cuando pasas el mouse */
+.nav-links a:hover,
+.nav-links a.active {
+  color: #ffffff;
+  font-weight: bold;             /* Se resalta como en tu captura */
+}
+
+/* El botón de Iniciar Sesión de la derecha */
+.nav-btn {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Borde delgado y semi-transparente */
+  border-radius: 8px;            /* Redondeado suave del botón */
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Efecto visual al pasar el mouse por el botón */
+.nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+}
